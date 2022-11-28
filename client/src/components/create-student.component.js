@@ -83,8 +83,8 @@ export default class CreateStudent extends Component {
           <Form.Label>About</Form.Label>
           <Form.Control type="text" value={this.state.about} onChange={this.onChangeStudentAbout} />
         </Form.Group>
-        <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
-          Create Student
+        <Button variant="danger" size="md" block="block" type="submit" className="mt-4">
+          Submit
         </Button>
       </Form>
     </div>);

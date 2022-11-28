@@ -93,7 +93,7 @@ export default class EditStudent extends Component {
           <Form.Label>Location</Form.Label>
           <Form.Control type="text" value={this.state.location} onChange={this.onChangeStudentLocation} />
         </Form.Group>
-        <Button variant="danger" size="lg" block="block" type="submit">
+        <Button variant="danger" size="md" block="block" type="submit">
           Update Student
         </Button>
       </Form>
