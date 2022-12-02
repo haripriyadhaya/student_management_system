@@ -1,25 +1,27 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-let studentSchema = new Schema({
-  name: {
-    type: String
-  },
-  email: {
-    type: String
-  },
-  dob: {
-    type: Date
-  },
-  education: {
-    type: String
-  },
-  location: {
-    type: String
-  },
-  about: {
-    type: String
-  }
-}, {
-    collection: 'students'
-  })
-module.exports = mongoose.model('Student', studentSchema)
+var Sequelize = require('sequelize');
+var db = require('../config/database');
+ 
+const { DataTypes } = Sequelize;
+ 
+const Details = db.define('detail',{
+    name:{
+        type: DataTypes.STRING
+    },
+    email:{
+        type: DataTypes.STRING
+    },
+    dob:{
+      type: DataTypes.DATE
+    },
+    education:{
+      type: DataTypes.STRING
+    },
+    location:{
+      type: DataTypes.STRING
+    }
+  },{
+    freezeTableName: true
+});
+ 
+module.exports = Details;
+ 

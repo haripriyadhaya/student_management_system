@@ -3,22 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
+var Sequelize = require('sequelize');
+
+const db = new Sequelize('student', 'root', '', {
+  host: "localhost",
+  dialect: "mysql"
+});
+try {
+  db.authenticate();
+  console.log('Database connected...');
+} catch (error) {
+  console.error('Connection error:', error);
+}
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var studentRouter = require('./routes/student');
-
-mongoose.connect('mongodb://localhost:27017/student_db');
- var db = mongoose.connection;
-
- db.on('error',console.error.bind(console,"connection error:"));
- db.once('open',function() {
- console.log("connection Sucessfully!");
- });
-
 
 var app = express();
 app.use(bodyParser.json());

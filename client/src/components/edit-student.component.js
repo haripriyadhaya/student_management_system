@@ -21,7 +21,7 @@ export default class EditStudent extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/students/edit-student/' + this.props.match.params.id)
+    axios.get('http://localhost:4000/students/:id' + this.props.match.params.id)
       .then(res => {
         this.setState({
           name: res.data.name,
@@ -59,7 +59,7 @@ export default class EditStudent extends Component {
       education: this.state.education,
       location: this.state.location
     };
-    axios.put('http://localhost:4000/students/update-student/' + this.props.match.params.id, studentObject)
+    axios.patch('http://localhost:4000/students/update-student/' + this.props.match.params.id, studentObject)
       .then((res) => {
         console.log(res.data)
         console.log('Student successfully updated')
